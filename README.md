@@ -2,11 +2,11 @@
 
 Este proyecto es una implementación de una base de datos en MySQL diseñada para gestionar un sistema de inventario, incluyendo productos, proveedores y transacciones de compra/venta. La lógica principal del negocio, como la actualización de stock y la validación de ventas, se maneja directamente en la base de datos a través de **Triggers** y **Procedimientos Almacenados** para garantizar la máxima integridad y rendimiento.
 
-## 🎯 Objetivo
+## Objetivo
 
 El propósito del sistema es administrar de manera integral el inventario de productos, las relaciones con proveedores y las transacciones, manteniendo el stock actualizado en tiempo real y previniendo inconsistencias en los datos, como vender productos sin existencias.
 
-## ✨ Características Principales
+## Características Principales
 
   * **Gestión de Catálogos:** Permite registrar y administrar productos y proveedores de forma centralizada.
   * **Control de Transacciones:** Registra todas las operaciones de compra y venta, manteniendo un historial completo de movimientos.
@@ -14,7 +14,7 @@ El propósito del sistema es administrar de manera integral el inventario de pro
   * **Validación de Ventas:** Un procedimiento almacenado valida la disponibilidad de stock antes de confirmar una venta. Si no hay suficientes existencias, la operación se anula (`ROLLBACK`).
   * **Consultas Simplificadas:** Utiliza Vistas SQL para ofrecer acceso rápido al estado del inventario y al historial detallado de transacciones.
 
-## 📂 Esquema de la Base de Datos
+## Esquema de la Base de Datos
 
 El modelo se organiza en torno a las transacciones, que conectan los productos y los proveedores.
 
@@ -36,7 +36,7 @@ El modelo se organiza en torno a las transacciones, que conectan los productos y
                                           *--1 [cantidad_productos]
 ```
 
-## ⚙️ Lógica de Negocio y Automatización
+## Lógica de Negocio y Automatización
 
 La inteligencia del sistema reside en la propia base de datos, lo que garantiza que las reglas de negocio se apliquen sin importar desde qué aplicación se consuman los datos.
 
@@ -68,7 +68,7 @@ La inteligencia del sistema reside en la propia base de datos, lo que garantiza 
         3.  **Si hay stock:** Inserta el registro en la tabla `transacciones` con `tipo = 2` y confirma la operación (`COMMIT`). El trigger se encarga de descontar el stock.
         4.  **Si no hay stock:** Cancela toda la operación (`ROLLBACK`) y lanza un error, evitando así la venta.
 
-## 🚀 Cómo Empezar
+## Cómo Empezar
 
 ### Prerrequisitos
 
@@ -81,7 +81,7 @@ La inteligencia del sistema reside en la propia base de datos, lo que garantiza 
 2.  Conéctate a tu servidor de base de datos.
 3.  Ejecuta el script `sql_DDL_query.txt` completo. Esto creará la base de datos `m5_evalmod`, las tablas, vistas, triggers y procedimientos almacenados.
 
-## 📋 Ejemplos de Uso
+## Ejemplos de Uso
 
 Una vez que la base de datos esté configurada y tengas algunos productos y proveedores, puedes gestionar el inventario llamando a los procedimientos almacenados.
 
